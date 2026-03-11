@@ -11,13 +11,28 @@ app.get("/webhook", (req, res) => {
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
 
+  console.log("Token recibido:", token);
+  console.log("Token esperado:", VERIFY_TOKEN);
+  console.log("Mode:", mode);
+
   if (mode === "subscribe" && token === VERIFY_TOKEN) {
     console.log("Webhook verificado correctamente");
     res.status(200).send(challenge);
   } else {
+    console.log("Token no coincide");
     res.sendStatus(403);
   }
 });
+```
+
+6. Haz clic en **"Commit changes"**
+7. Confirma con **"Commit changes"**
+
+---
+
+Cuando Railway redesplegue automaticamente abre esta URL en el navegador:
+```
+https://arbol-de-sefirot-production.up.railway.app/webhook?hub.mode=subscribe&hub.verify_token=token123&hub.challenge=12345
 
 // Recibir mensajes de WhatsApp
 app.post("/webhook", async (req, res) => {
