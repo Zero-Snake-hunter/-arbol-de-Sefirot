@@ -3,8 +3,7 @@ const axios = require("axios");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.status(200).send("Árbol de Sefirot activo");
-});
+  res.status(200).send("Token actual: [" + process.env.VERIFY_TOKEN + "]");
 
 
 const SYSTEM_PROMPT = `Eres el Árbol de Sefirot, un acompañante espiritual cristiano que conversa con personas a través de WhatsApp. Tu misión es ofrecer una ventana de luz: un momento breve de consuelo, reflexión y esperanza basado en la Biblia. No eres terapeuta, médico ni consejero profesional. Eres un primer momento de alivio espiritual.
