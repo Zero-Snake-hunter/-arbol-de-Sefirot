@@ -231,7 +231,7 @@ app.post("/webhook", async (req, res) => {
     const usage    = aiResponse.data.usage;
     console.log("Tokens - Input:", usage?.input_tokens, "| Output:", usage?.output_tokens, "| Cache:", usage?.cache_read_input_tokens || 0);
     await axios.post(
-      "https://graph.facebook.com/v18.0/" + process.env.PHONE_NUMBER_ID + "/messages",
+      "https://graph.facebook.com/v18.0/1098774876649654/messages",
       {
         messaging_product: "whatsapp",
         to:   phoneNumber,
